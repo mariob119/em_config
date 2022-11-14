@@ -1,5 +1,3 @@
-# em_config
-
 # What is the em_config for?
 
 The em_config is for automatically installing
@@ -14,7 +12,7 @@ running automatically.
 What is needed:
 * A linux image where you are logged in as root user
 
-# How to install
+## How to install
 * Set up a linux image
 * Enter username and password
 * Establish an internet connection (wifi or lan)
