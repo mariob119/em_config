@@ -55,9 +55,13 @@ echo ""
 echo "Get EnergyManager data"
 echo ""
 
-rm -r energymanager
 cd /.
-git clone https://github.com/mariob119/energymanager.git
+if [[ ! -d /energymanager ]]; then
+  cd /.
+  git clone https://github.com/mariob119/energymanager.git
+fi
+
+cd energymanager
 git pull https://github.com/mariob119/energymanager.git
 
 echo ""
