@@ -96,6 +96,4 @@ echo "Get EnergyManager data"
 echo ""
 
 cd /.
-mkdir energymanager_temp
-cd energymanager_temp
 git clone https://github.com/mariob119/energymanager.git
