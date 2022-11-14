@@ -2,10 +2,15 @@
 
 # Script for setting up slim linux for raspberry py
 
+echo ""
+echo "==========================================================="
+
 echo "Do update"
 apt-get update
 echo ""
+echo "==========================================================="
 
+echo ""
 echo "Do upgrade"
 apt-get upgrade -y
 echo ""
