@@ -21,17 +21,33 @@ echo ""
 echo "======================================================================"
 echo ""
 
+echo "Create verify install folder"
+echo ""
+mkdir verifyinstall
+
+echo ""
+echo "======================================================================"
+echo ""
+
 echo "Install needed applications"
 echo ""
-apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release \
-    apt-transport-https \
-    software-properties-common \
-    gnupg \
-    lsb-release
+
+if [[ ! -d /verifyinstall/packages ]]; then
+  apt-get install \
+      ca-certificates \
+      curl \
+      gnupg \
+      lsb-release \
+      apt-transport-https \
+      software-properties-common \
+      gnupg \
+      lsb-release
+
+    cd /.
+    mkdir /verifyinstall/packages
+fi
+
+
 
 echo ""
 echo "======================================================================"
@@ -85,9 +101,12 @@ echo "Set up everything for docker!"
 echo ""
 
 sudo apt-get update
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
+
+if [[ ! -d /etc/apt/keyrings ]]; then
+  sudo mkdir -p /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/debian/gpg
+  sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+fi
 
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
