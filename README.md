@@ -18,6 +18,11 @@ What is needed:
 * Establish an internet connection (wifi or lan)
 * Use `sudo passwd root` for setting the root password
 * Log in as root
-* Run the command `wget -O - https://raw.githubusercontent.com/mariob119/em_config/main/em_config.sh | bash`
+
+Use this command for ubuntu
+* Run the command `wget -O - https://raw.githubusercontent.com/mariob119/em_config/main/em_config_ubuntu.sh | bash`
+
+Use this command for debian
+* Run the command `wget -O - https://raw.githubusercontent.com/mariob119/em_config/main/em_config_debian.sh | bash`
 
 And now you are done! :)
