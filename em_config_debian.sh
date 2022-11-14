@@ -97,3 +97,5 @@ echo ""
 
 cd /.
 git clone https://github.com/mariob119/energymanager.git
+cd energymanager
+docker build -t energymanager
