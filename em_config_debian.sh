@@ -29,14 +29,45 @@ apt-get install \
     gnupg \
     lsb-release
 
+
+
+echo ""
+echo "======================================================================"
+echo ""
+
+echo "Install Git"
+echo ""
+
+apt-get install git
+
+echo ""
+echo "======================================================================"
+echo ""
+
+echo "Install mcedit"
+echo ""
+apt-get install mcedit -y
+
+echo ""
+echo "======================================================================"
+echo ""
+
+echo "Get EnergyManager data"
+echo ""
+
+cd /.
+git clone https://github.com/mariob119/energymanager.git
+
 echo ""
 echo "======================================================================"
 echo ""
 
 echo "Enable SSH"
 echo ""
+sudo apt-get install systemctl
 sudo systemctl start ssh
 sudo systemctl enable ssh
+cp root/sshd_config /etc/ssh/sshd_config
 
 echo ""
 echo "======================================================================"
@@ -90,25 +121,6 @@ docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name portainer \
 portainer/portainer-ce:latest
 
 docker ps
-
-echo ""
-echo "======================================================================"
-echo ""
-
-echo "Install Git"
-echo ""
-
-apt-get install git
-
-echo ""
-echo "======================================================================"
-echo ""
-
-echo "Get EnergyManager data"
-echo ""
-
-cd /.
-git clone https://github.com/mariob119/energymanager.git
 
 echo ""
 echo "======================================================================"
