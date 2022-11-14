@@ -58,6 +58,7 @@ echo ""
 rm -r energymanager
 cd /.
 git clone https://github.com/mariob119/energymanager.git
+git pull https://github.com/mariob119/energymanager.git
 
 echo ""
 echo "======================================================================"
