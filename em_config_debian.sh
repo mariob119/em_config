@@ -25,7 +25,11 @@ echo "Create verify install folder"
 echo ""
 
 cd /.
-mkdir verifyinstall
+if [[ ! -d /verifyinstall ]]; then
+  cd /.
+  mkdir verifyinstall
+  echo "Verifyinstall folder created"
+fi
 
 echo ""
 echo "======================================================================"
@@ -47,6 +51,7 @@ if [[ ! -d /verifyinstall/packages ]]; then
 
     cd /.
     mkdir verifyinstall/packages
+    echo "Installed all needed packages"
 fi
 
 echo ""
