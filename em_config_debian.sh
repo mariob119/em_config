@@ -23,6 +23,8 @@ echo ""
 
 echo "Create verify install folder"
 echo ""
+
+cd /.
 mkdir verifyinstall
 
 echo ""
@@ -44,10 +46,8 @@ if [[ ! -d /verifyinstall/packages ]]; then
       lsb-release
 
     cd /.
-    mkdir /verifyinstall/packages
+    mkdir verifyinstall/packages
 fi
-
-
 
 echo ""
 echo "======================================================================"
