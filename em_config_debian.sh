@@ -67,7 +67,7 @@ echo ""
 sudo apt-get install systemctl
 sudo systemctl start ssh
 sudo systemctl enable ssh
-cp root/sshd_config /etc/ssh/sshd_config
+cp energymanager/root/sshd_config /etc/ssh/sshd_config
 
 echo ""
 echo "======================================================================"
