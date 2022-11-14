@@ -1,7 +1,7 @@
 # What is the em_config for?
 
 The em_config is for automatically installing
-all necassary applikations and dependencies
+all necassary applications and dependencies
 for the energymanager. This also includes
 docker, portainer and the docker image for
 energymanager. Moreover it also maps all
