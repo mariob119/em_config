@@ -50,4 +50,7 @@ echo ""
 
 echo "Install docker!"
 echo ""
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt-get install docker-ce -y
+sudo apt-get docker-ce-cli -y
+sudo apt-get containerd.io -y
+sudo apt-get docker-compose-plugin -y
