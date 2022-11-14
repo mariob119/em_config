@@ -29,7 +29,9 @@ apt-get install \
     gnupg \
     lsb-release \
     apt-transport-https \
-    software-properties-common
+    software-properties-common \
+    gnupg \
+    lsb-release
 
 echo ""
 echo "======================================================================"
