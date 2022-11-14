@@ -33,6 +33,15 @@ echo ""
 echo "======================================================================"
 echo ""
 
+echo "Enable SSH"
+echo ""
+sudo systemctl start ssh
+sudo systemctl enable ssh
+
+echo ""
+echo "======================================================================"
+echo ""
+
 echo "Set up everything for docker!"
 echo ""
 sudo mkdir -p /etc/apt/keyrings

@@ -33,6 +33,15 @@ echo ""
 echo "======================================================================"
 echo ""
 
+echo "Enable SSH"
+echo ""
+sudo systemctl start ssh
+sudo systemctl enable ssh
+
+echo ""
+echo "======================================================================"
+echo ""
+
 echo "Set up everything for docker!"
 echo ""
 sudo mkdir -p /etc/apt/keyrings
@@ -75,7 +84,7 @@ docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name portainer \
 --restart=always \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v portainer_data:/data \
-portainer/portainer-ce:2.9.3
+portainer/portainer-ce:latest
 
 docker ps
 
@@ -97,5 +106,20 @@ echo ""
 
 cd /.
 git clone https://github.com/mariob119/energymanager.git
+
+echo ""
+echo "======================================================================"
+echo ""
+
+echo "Building EnergyManager Image"
+echo ""
 cd energymanager
-docker build -t energymanager .
+docker build -t energymanagerimage .
+
+echo ""
+echo "======================================================================"
+echo ""
+
+echo "Starting EnergyManager"
+echo ""
+docker run -p 3000:3000 -p 1883:1883 -p 23:22 -p 502:502 -p 80:80 --name energymanager --restart always energymanagerimage
