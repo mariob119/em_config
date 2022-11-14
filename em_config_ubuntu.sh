@@ -79,3 +79,16 @@ docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name portainer \
 portainer/portainer-ce:2.9.3
 
 docker ps
+
+echo ""
+echo "======================================================================"
+echo ""
+
+echo "Install Git"
+echo ""
+
+apt-get install Git
+
+echo ""
+echo "======================================================================"
+echo ""
