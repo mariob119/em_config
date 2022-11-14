@@ -55,6 +55,7 @@ echo ""
 echo "Get EnergyManager data"
 echo ""
 
+rm -r energymanager
 cd /.
 git clone https://github.com/mariob119/energymanager.git
 
@@ -64,7 +65,7 @@ echo ""
 
 echo "Enable SSH"
 echo ""
-sudo apt-get install systemctl
+sudo apt-get install systemctl -y
 sudo systemctl start ssh
 sudo systemctl enable ssh
 cp energymanager/root/sshd_config /etc/ssh/sshd_config
