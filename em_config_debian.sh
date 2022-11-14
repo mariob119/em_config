@@ -77,7 +77,7 @@ echo ""
 echo "Set up everything for docker!"
 echo ""
 
-sudo mkdir -p /etc/apt/keyrings
+sudo mkdir -p /etc/apt/keyrings -y
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
 echo \
