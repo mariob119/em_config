@@ -27,9 +27,9 @@ apt-get install \
     ca-certificates \
     curl \
     gnupg \
-    lsb-release
-
-
+    lsb-release \
+    apt-transport-https \
+    software-properties-common
 
 echo ""
 echo "======================================================================"
@@ -75,11 +75,6 @@ sudo systemctl start ssh
 sudo systemctl enable ssh
 cp energymanager/root/sshd_config /etc/ssh/sshd_config
 
-sudo apt-get install systemctl -y
-sudo systemctl start ssh
-sudo systemctl enable ssh
-cp energymanager/root/sshd_config /etc/ssh/sshd_config
-
 echo ""
 echo "======================================================================"
 echo ""
@@ -89,7 +84,7 @@ echo ""
 
 sudo apt-get update
 sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
 
 echo \
