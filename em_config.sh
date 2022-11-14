@@ -36,7 +36,8 @@ echo ""
 echo "Set up everything for docker!"
 echo ""
 sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/debian/gpg
+sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -54,3 +55,25 @@ sudo apt-get install docker-ce -y
 sudo apt-get docker-ce-cli -y
 sudo apt-get containerd.io -y
 sudo apt-get docker-compose-plugin -y
+
+echo ""
+echo "======================================================================"
+echo ""
+
+echo "Setup Portainer"
+echo ""
+docker volume create portainer_data
+
+echo ""
+echo "======================================================================"
+echo ""
+
+echo "Install Portainer"
+echo ""
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
+--restart=always \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v portainer_data:/data \
+portainer/portainer-ce:2.9.3
+
+docker ps
