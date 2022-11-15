@@ -78,10 +78,10 @@ echo ""
 
 echo "Enable SSH"
 echo ""
-sudo apt-get install systemctl -y
+apt-get install systemctl -y
 apt-get install openssh-server -y
-sudo systemctl start ssh
-sudo systemctl enable ssh
+systemctl start ssh
+systemctl enable ssh
 cd /.
 cp energymanager/root/sshd_config etc/ssh/sshd_config
 
@@ -92,18 +92,18 @@ echo ""
 echo "Set up everything for docker!"
 echo ""
 
-sudo apt-get update
+apt-get update
 
-sudo mkdir -p /etc/apt/keyrings
+mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg
-sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
+gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
 
 echo \
 "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+$(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-sudo apt-get update
+chmod a+r /etc/apt/keyrings/docker.gpg
+apt-get update
 
 
 echo "Docker is prepared!"
@@ -114,10 +114,10 @@ echo ""
 
 echo "Install docker!"
 echo ""
-sudo apt-get install docker-ce -y
-sudo apt-get docker-ce-cli -y
-sudo apt-get containerd.io -y
-sudo apt-get docker-compose-plugin -y
+apt-get install docker-ce -y
+apt-get docker-ce-cli -y
+apt-get containerd.io -y
+apt-get docker-compose-plugin -y
 
 echo "Docker is installed!"
 
