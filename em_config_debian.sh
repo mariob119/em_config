@@ -5,22 +5,6 @@
 echo ""
 echo "======================================================================"
 
-echo "Init docker key"
-echo ""
-cd /.
-if [[ ! -f /etc/apt/keyrings/docker.gpg ]]; then
-  cd /.
-  sudo mkdir -p /etc/apt/keyrings
-  echo "Created docker dir!"
-  sudo curl -fsSL https://download.docker.com/linux/debian/gpg
-  sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
-  sudo chmod a+r /etc/apt/keyrings/docker.gpg
-fi
-
-echo ""
-echo "======================================================================"
-echo ""
-
 echo "Do update"
 echo ""
 apt-get update
@@ -110,17 +94,15 @@ echo ""
 
 apt-get update
 
-mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg
-gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
 
 echo \
-"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-$(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-chmod a+r /etc/apt/keyrings/docker.gpg
-apt-get update
-
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+sudo apt-get update
 
 echo "Docker is prepared!"
 
