@@ -5,6 +5,18 @@
 echo ""
 echo "======================================================================"
 
+echo "Init docker key"
+echo ""
+cd /.
+if [[ ! -f /etc/apt/keyrings/docker.gpg ]]; then
+  cd /.
+  chmod a+r /etc/apt/keyrings/docker.gpg
+fi
+
+echo ""
+echo "======================================================================"
+echo ""
+
 echo "Do update"
 echo ""
 apt-get update
