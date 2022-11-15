@@ -125,7 +125,7 @@ echo ""
 echo "Install docker!"
 echo ""
 cd
-sudo apt-get install docker.io
+sudo apt-get install docker.io -y
 
 echo "Docker is installed!"
 
