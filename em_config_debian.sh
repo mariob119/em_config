@@ -11,6 +11,7 @@ cd /.
 if [[ ! -f /etc/apt/keyrings/docker.gpg ]]; then
   cd /.
   mkdir -p /etc/apt/keyrings
+  echo "Created docker dir!"
   curl -fsSL https://download.docker.com/linux/debian/gpg
   gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
   chmod a+r /etc/apt/keyrings/docker.gpg
