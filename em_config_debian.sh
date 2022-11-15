@@ -5,7 +5,7 @@
 echo ""
 echo "======================================================================"
 echo ""
-echo "Test echo 9"
+echo "Test echo 10"
 echo ""
 echo "======================================================================"
 echo ""
@@ -125,7 +125,7 @@ echo ""
 echo "Install docker!"
 echo ""
 cd
-sudo apt-get install docker.io -y
+sudo apt install docker.io -y
 
 echo "Docker is installed!"
 
