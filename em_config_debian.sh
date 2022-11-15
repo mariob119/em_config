@@ -5,7 +5,7 @@
 echo ""
 echo "======================================================================"
 echo ""
-echo "Test echo 8"
+echo "Test echo 9"
 echo ""
 echo "======================================================================"
 echo ""
@@ -125,7 +125,7 @@ echo ""
 echo "Install docker!"
 echo ""
 cd
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt-get install docker.io
 
 echo "Docker is installed!"
 
