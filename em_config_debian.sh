@@ -71,7 +71,7 @@ echo "Get EnergyManager data"
 echo ""
 
 cd /.
-if [[ ! -d energymanager ]]; then
+if [[ ! -d /energymanager ]]; then
   cd /.
   git clone https://github.com/mariob119/energymanager.git
 fi
