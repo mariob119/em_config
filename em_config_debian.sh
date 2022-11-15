@@ -21,38 +21,22 @@ echo ""
 echo "======================================================================"
 echo ""
 
-echo "Create verify install folder"
-echo ""
-
-cd /.
-if [[ ! -d /verifyinstall ]]; then
-  cd /.
-  mkdir verifyinstall
-  echo "Verifyinstall folder created"
-fi
-
-echo ""
-echo "======================================================================"
-echo ""
-
 echo "Install needed applications"
 echo ""
 
-if [[ ! -d /verifyinstall/packages ]]; then
-  apt-get install \
-      ca-certificates \
-      curl \
-      gnupg \
-      lsb-release \
-      apt-transport-https \
-      software-properties-common \
-      gnupg \
-      lsb-release
 
-    cd /.
-    mkdir verifyinstall/packages
+apt-get install \
+  ca-certificates \
+  curl \
+  gnupg \
+  lsb-release \
+  apt-transport-https \
+  software-properties-common \
+  gnupg \
+  lsb-release
+
     echo "Installed all needed packages"
-fi
+
 
 echo ""
 echo "======================================================================"
@@ -96,7 +80,8 @@ echo ""
 sudo apt-get install systemctl -y
 sudo systemctl start ssh
 sudo systemctl enable ssh
-cp energymanager/root/sshd_config /etc/ssh/sshd_config
+cd /.
+cp energymanager/root/sshd_config etc/ssh/sshd_config
 
 echo ""
 echo "======================================================================"
@@ -107,17 +92,16 @@ echo ""
 
 sudo apt-get update
 
-if [[ ! -d /etc/apt/keyrings ]]; then
-  sudo mkdir -p /etc/apt/keyrings
-  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg -y | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
-  echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-  sudo chmod a+r /etc/apt/keyrings/docker.gpg
-  sudo apt-get update
-fi
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+sudo apt-get update
+
 
 echo "Docker is prepared!"
 
@@ -125,16 +109,12 @@ echo ""
 echo "======================================================================"
 echo ""
 
-if [[ ! -d /verifyinstall/docker ]]; then
-  echo "Install docker!"
-  echo ""
-  sudo apt-get install docker-ce -y
-  sudo apt-get docker-ce-cli -y
-  sudo apt-get containerd.io -y
-  sudo apt-get docker-compose-plugin -y
-  cd /.
-  mkdir verifyinstall/docker
-fi
+echo "Install docker!"
+echo ""
+sudo apt-get install docker-ce -y
+sudo apt-get docker-ce-cli -y
+sudo apt-get containerd.io -y
+sudo apt-get docker-compose-plugin -y
 
 echo "Docker is installed!"
 
