@@ -15,6 +15,7 @@ echo "======================================================================"
 
 echo "Do update"
 echo ""
+cd
 apt-get update
 
 echo ""
@@ -71,7 +72,7 @@ echo "Get EnergyManager data"
 echo ""
 
 cd /.
-if [[ ! -d /energymanager ]]; then
+if [[ ! -d energymanager ]]; then
   cd /.
   git clone https://github.com/mariob119/energymanager.git
 fi
@@ -86,6 +87,7 @@ echo ""
 
 echo "Enable SSH"
 echo ""
+cd
 apt-get install systemctl -y
 apt-get install openssh-server -y
 systemctl start ssh
@@ -121,6 +123,7 @@ echo ""
 
 echo "Install docker!"
 echo ""
+cd
 apt-get install docker-ce -y
 apt-get docker-ce-cli -y
 apt-get containerd.io -y
@@ -142,7 +145,7 @@ echo ""
 
 echo "Install Portainer"
 echo ""
-
+cd
 docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name portainer \
 --restart=always \
 -v /var/run/docker.sock:/var/run/docker.sock \
