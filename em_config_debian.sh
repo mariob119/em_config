@@ -68,6 +68,7 @@ if [[ ! -d /energymanager ]]; then
   git clone https://github.com/mariob119/energymanager.git
 fi
 
+cd /.
 cd energymanager
 git pull https://github.com/mariob119/energymanager.git
 
@@ -78,6 +79,7 @@ echo ""
 echo "Enable SSH"
 echo ""
 sudo apt-get install systemctl -y
+apt-get install openssh-server -y
 sudo systemctl start ssh
 sudo systemctl enable ssh
 cd /.
@@ -147,6 +149,7 @@ echo ""
 
 echo "Building EnergyManager Image"
 echo ""
+cd /.
 cd energymanager
 docker build -t energymanagerimage .
 
