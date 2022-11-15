@@ -98,30 +98,6 @@ echo ""
 echo "======================================================================"
 echo ""
 
-echo "Set up everything for docker!"
-echo ""
-
-cd
-apt-get update
-
-sudo mkdir -p /etc/apt/keyrings
-
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
-
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-
-sudo apt-get update
-
-echo "Docker is prepared!"
-
-echo ""
-echo "======================================================================"
-echo ""
-
 echo "Install docker!"
 echo ""
 cd
