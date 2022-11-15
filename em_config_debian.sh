@@ -5,7 +5,7 @@
 echo ""
 echo "======================================================================"
 echo ""
-echo "Test echo 1"
+echo "Test echo 3"
 echo ""
 echo "======================================================================"
 echo ""
@@ -100,6 +100,7 @@ echo ""
 echo "Set up everything for docker!"
 echo ""
 
+cd
 apt-get update
 
 sudo mkdir -p /etc/apt/keyrings
