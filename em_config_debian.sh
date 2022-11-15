@@ -10,6 +10,9 @@ echo ""
 cd /.
 if [[ ! -f /etc/apt/keyrings/docker.gpg ]]; then
   cd /.
+  mkdir -p /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/debian/gpg
+  gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
   chmod a+r /etc/apt/keyrings/docker.gpg
 fi
 
