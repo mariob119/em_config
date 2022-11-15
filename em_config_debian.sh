@@ -5,7 +5,7 @@
 echo ""
 echo "======================================================================"
 echo ""
-echo "Test echo 7"
+echo "Test echo 8"
 echo ""
 echo "======================================================================"
 echo ""
@@ -103,17 +103,17 @@ echo ""
 
 cd
 apt-get update
-sleep 5
+
 sudo mkdir -p /etc/apt/keyrings
-sleep 5
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
-sleep 5
+
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
+
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sleep5
+
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
-sleep 5
+
 sudo apt-get update
 
 echo "Docker is prepared!"
