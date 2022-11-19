@@ -32,7 +32,7 @@ echo ""
 
 echo ""
 echo "Register Device"
-curl http://192.168.30.81:3000/registerdevice
+wget http://192.168.30.81:3000/registerdevice
 
 echo ""
 echo "======================================================================"
