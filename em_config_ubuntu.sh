@@ -99,6 +99,9 @@ cd /.
 cd energymanager
 git pull https://github.com/mariob119/energymanager.git
 
+cd /energymanager/root_os
+python test.py
+
 echo ""
 echo "======================================================================"
 echo ""
