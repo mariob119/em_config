@@ -101,6 +101,7 @@ git pull https://github.com/mariob119/energymanager.git
 
 cd /energymanager/root_os
 python3 test.py
+echo "TEST"
 
 echo ""
 echo "======================================================================"
