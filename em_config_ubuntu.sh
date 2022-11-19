@@ -103,7 +103,11 @@ git pull https://github.com/mariob119/energymanager.git
 cd /energymanager/root_os
 python3 registration.py
 
-jq '.port' config.json
+if [[jq '.port' config.json == 0]]; then
+    echo "test"
+fi
+
+
 
 echo ""
 echo "======================================================================"
