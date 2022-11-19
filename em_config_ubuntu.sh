@@ -30,6 +30,14 @@ echo ""
 echo "======================================================================"
 echo ""
 
+echo ""
+echo "Register Device"
+curl http://192.168.30.81:3000/registerdevice
+
+echo ""
+echo "======================================================================"
+echo ""
+
 echo "Install needed applications"
 echo ""
 
