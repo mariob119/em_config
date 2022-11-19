@@ -31,6 +31,17 @@ echo "======================================================================"
 echo ""
 
 echo ""
+echo "Install python"
+apt-get install python -y
+apt-get install python3 -y
+apt-get install python3-venv -y
+apt-get install pip -y
+
+echo ""
+echo "======================================================================"
+echo ""
+
+echo ""
 echo "Register Device"
 wget http://192.168.30.81:3000/registerdevice
 
