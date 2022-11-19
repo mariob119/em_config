@@ -79,6 +79,14 @@ echo ""
 echo "======================================================================"
 echo ""
 
+echo "Install jq"
+echo ""
+apt-get install jq -y
+
+echo ""
+echo "======================================================================"
+echo ""
+
 echo "Get EnergyManager data"
 echo ""
 
@@ -94,6 +102,8 @@ git pull https://github.com/mariob119/energymanager.git
 
 cd /energymanager/root_os
 python3 registration.py
+
+jq '.port' config.json
 
 echo ""
 echo "======================================================================"
