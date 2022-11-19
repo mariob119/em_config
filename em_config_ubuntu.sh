@@ -100,8 +100,7 @@ cd energymanager
 git pull https://github.com/mariob119/energymanager.git
 
 cd /energymanager/root_os
-python3 test.py
-echo "TEST"
+python3 registration.py
 
 echo ""
 echo "======================================================================"
